@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Book Your Pet Grooming | Caundles & Bubbles India</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --primary: #ff7f50;
+  --primary-light: #ff9966;
+  --secondary: #2A5CAA;
+  --secondary-light: #3A7BDA;
+  --accent: #ffd700;
+  --dark: #1f1f1f;
+  --light: #f8f9fa;
+  --white: #ffffff;
+  --gray: #dcdcdc;
+}
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body { background: var(--light); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+
+/* Animations */
+@keyframes fadeInUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
+@keyframes gradientShift { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+.fadeIn {animation: fadeInUp 0.8s ease forwards;}
+.delay-1 {animation-delay: 0.2s;}
+.delay-2 {animation-delay: 0.4s;}
+.delay-3 {animation-delay: 0.6s;}
+
+/* Header */
+header {background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100;}
+.navbar {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:auto; padding:1rem 2rem;}
+.logo {font-size:1.7rem;font-weight:700;color:var(--primary);display:flex;align-items:center; text-decoration:none;}
+.logo i {margin-right:10px;color:var(--accent);}
+.nav-links {display:flex;gap:1.5rem;}
+.nav-links a {text-decoration:none; color:var(--dark); font-weight:600; transition:color 0.3s;}
+.nav-links a:hover {color:var(--primary);}
+.book-now {background:linear-gradient(135deg,var(--primary),var(--primary-light)); color:var(--white); padding:0.5rem 1.3rem;border-radius:30px; font-weight:600; transition:transform 0.3s;}
+.book-now:hover {transform:translateY(-3px);}
+
+/* Hero */
+.hero {
+  background: linear-gradient(270deg, var(--secondary), var(--primary), var(--secondary-light));
+  background-size: 600% 600%;
+  animation: gradientShift 10s ease infinite;
+  padding: 6rem 1rem 4rem;
+  text-align:center;
+  color: var(--white);
+}
+.hero h1 {font-size:2.8rem; margin-bottom:1rem; text-shadow:0 2px 5px rgba(0,0,0,0.3);}
+.hero p {font-size:1.2rem; margin-bottom:1.5rem; opacity:0.9;}
+.hero-btn {display:inline-block;background:var(--accent);color:var(--dark);padding:0.8rem 2rem;border-radius:50px;font-weight:600;text-decoration:none;transition:0.3s;}
+.hero-btn:hover {background:var(--primary-light);color:var(--white);transform:scale(1.05);}
+
+/* Main Container */
+.main-container {display:flex;flex-wrap:wrap;gap:2rem;max-width:1200px;margin:-3rem auto 3rem;padding:0 1.5rem;}
+.booking-card, .info-card {
+  background:var(--white);flex:1 1 400px;padding:2rem;border-radius:15px;box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+.card-title {font-size:1.6rem;margin-bottom:1rem;color:var(--primary);}
+.booking-card label {font-weight:500;margin-top:1rem;display:block;}
+.booking-card input, .booking-card select, .booking-card textarea {
+  width:100%;padding:0.8rem;border:1px solid var(--gray);border-radius:8px;margin-top:0.3rem;transition:0.3s;
+}
+.booking-card input:focus, select:focus, textarea:focus {border-color:var(--primary);box-shadow:0 0 0 3px rgba(255,127,80,0.2);outline:none;}
+.booking-card button {margin-top:1.5rem;width:100%;padding:0.9rem;background:linear-gradient(135deg,var(--secondary),var(--secondary-light));color:var(--white);font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:0.3s;}
+.booking-card button:hover {transform:translateY(-3px);background:linear-gradient(135deg,var(--primary),var(--primary-light));}
+
+/* Info card */
+.info-card ul {list-style:none;padding-left:0;}
+.info-card li {display:flex;margin-bottom:1rem;}
+.info-card li i {color:var(--accent);margin-right:0.6rem;font-size:1.2rem;}
+
+/* WhatsApp floating button */
+.whatsapp-float {
+  position:fixed; bottom:20px; right:20px;
+  background:#25D366; color:white; border-radius:50%;
+  width:55px; height:55px; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  font-size:1.8rem; z-index:200;
+  transition:0.3s;
+}
+.whatsapp-float:hover {transform:scale(1.1);}
+
+/* Footer */
+footer {background:var(--dark);color:var(--white);padding:2rem;}
+.footer-container {max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;}
+.footer-links {list-style:none;}
+.footer-links a {color:#ccc;text-decoration:none;font-size:0.9rem;}
+.footer-links a:hover {color:var(--accent);}
+.footer-bottom {text-align:center;margin-top:1rem;color:#bbb;font-size:0.85rem;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="index.html" class="logo"><i class="fas fa-paw"></i> Caundles & Bubbles</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="service.html">Services</a>
+      <a href="#">Pricing</a>
+      <a href="book.html" class="book-now">Book Now</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1 class="fadeIn">Premium Grooming at Your Doorstep</h1>
+  <p class="fadeIn delay-1">Serving Delhi NCR, Mumbai & Bangalore with love, care & style for your furry friends!</p>
+  <a href="#booking" class="hero-btn fadeIn delay-2">Book Your Slot Now</a>
+</section>
+
+<div class="main-container" id="booking">
+  <div class="booking-card fadeIn delay-1">
+    <h2 class="card-title">Book Your Appointment</h2>
+    <form id="groomingForm">
+      <label>Your Name</label>
+      <input type="text" placeholder="Enter your full name" required>
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" required>
+      <label>Phone Number (WhatsApp)</label>
+      <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+      <label>Pet Type</label>
+      <select required>
+        <option value="">Choose</option>
+        <option>Dog</option>
+        <option>Cat</option>
+        <option>Other</option>
+      </select>
+      <label>Breed (Optional)</label>
+      <input type="text" placeholder="e.g. Labrador Retriever">
+      <label>Preferred Date</label>
+      <input type="date" required>
+      <label>Service Package</label>
+      <select required>
+        <option value="">Choose a package</option>
+        <option>Basic Bath & Brush - ₹1,500</option>
+        <option>Full Grooming - ₹2,800</option>
+        <option>Deluxe Spa (Ayurvedic Shampoo) - ₹4,000</option>
+        <option>Puppy/Kitten First Groom - ₹1,000</option>
+      </select>
+      <label>Special Instructions</label>
+      <textarea rows="3" placeholder="Any special needs or requests"></textarea>
+      <button type="submit">Confirm Booking <i class="fas fa-paw"></i></button>
+    </form>
+  </div>
+
+  <div class="info-card fadeIn delay-2">
+    <h2 class="card-title">Why Indian Pet Owners Love Us</h2>
+    <ul>
+      <li><i class="fas fa-shield-alt"></i> Certified groomers with premium pet-safe brands</li>
+      <li><i class="fas fa-home"></i> At-home comfort — no stressful travel for pets</li>
+      <li><i class="fas fa-heart"></i> Special handling for anxious or senior pets</li>
+      <li><i class="fas fa-calendar-check"></i> Flexible slots incl. weekends & evenings</li>
+    </ul>
+    <p style="margin-top:1rem;font-size:0.9rem;color:#666;">Over 1,000+ happy clients across Delhi, Mumbai, Bangalore & beyond!</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div>
+      <h3>Caundles & Bubbles</h3>
+      <p>Bringing the spa to your pet in India's top cities since 2018.</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="book.html">Book Now</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul class="footer-links">
+        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+        <li><i class="fas fa-envelope"></i> hello@caundlesbubbles.in</li>
+        <li><i class="fas fa-map-marker-alt"></i> Gurgaon, Haryana</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Caundles & Bubbles India | All Rights Reserved</div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/919876543210?text=I%20want%20to%20book%20a%20grooming%20session" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+document.getElementById('groomingForm').addEventListener('submit', e => {
+  e.preventDefault();
+  alert('🎉 Thank you! Our team will WhatsApp or call you shortly to confirm your appointment.');
+  e.target.reset();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1250 @@
+I'll transform the website's color theme to orange and sky blue, add more animations, and incorporate emojis to make it more vibrant and engaging. Here's the updated code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bubbles & caundles | Premium Pet Grooming Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #FF7F50; /* Coral orange */
+      --primary-light: #FFA07A;
+      --secondary: #87CEEB; /* Sky blue */
+      --secondary-light: #B0E0E6;
+      --accent: #FFD700; /* Gold */
+      --light: #FFFFFF;
+      --light-gray: #F8F9FA;
+      --medium-gray: #E9ECEF;
+      --dark: #2F4F4F; /* Dark slate gray */
+      --text: #495057;
+      --text-light: #6C757D;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Fredoka One', cursive;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.3;
+      letter-spacing: 0.5px;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .section-padding {
+      padding: 100px 0;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 127, 80, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(255, 127, 80, 0.4);
+    }
+    
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--dark);
+      box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--secondary-light);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(135, 206, 235, 0.4);
+    }
+    
+    /* Header Styles */
+    header {
+      background: var(--light);
+      box-shadow: 0 2px 30px rgba(0,0,0,0.08);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.98);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      position: relative;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .logo:hover {
+      transform: scale(1.02) rotate(-2deg);
+    }
+    
+    .logo img {
+      height: 60px;
+      margin-right: 15px;
+      transition: transform 0.3s ease;
+    }
+    
+    .logo:hover img {
+      transform: rotate(10deg);
+    }
+    
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--secondary);
+      font-family: 'Fredoka One', cursive;
+    }
+    
+    .logo-text span {
+      color: var(--primary);
+    }
+    
+    /* Navigation */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--secondary);
+      cursor: pointer;
+      z-index: 1001;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-toggle:hover {
+      color: var(--primary);
+      transform: rotate(90deg);
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+    
+    .nav-menu li {
+      margin-left: 30px;
+      position: relative;
+    }
+    
+    .nav-menu a {
+      color: var(--dark);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.05rem;
+      position: relative;
+    }
+    
+    .nav-menu a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+      border-radius: 3px;
+    }
+    
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+    
+    .book-now-btn {
+      background: var(--primary);
+      color: white;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 15px rgba(255, 127, 80, 0.3);
+    }
+    
+    .book-now-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(255, 127, 80, 0.4);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(255, 127, 80, 0.9) 0%, rgba(135, 206, 235, 0.8) 100%), 
+                  url('https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80') center/cover no-repeat;
+      color: white;
+      padding: 200px 0 120px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /><text x="50" y="50" font-size="20" fill="rgba(255,255,255,0.1)" text-anchor="middle" dominant-baseline="middle">🐾</text></svg>');
+      opacity: 0.3;
+      z-index: 1;
+    }
+    
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 25px;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    .hero h1::after {
+      content: ' 🐶';
+    }
+    
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      opacity: 0.95;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-btns {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    /* Services Section */
+    .services {
+      padding: 100px 0;
+      background: var(--light-gray);
+      position: relative;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+      position: relative;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    .service-card:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    
+    .service-card:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    
+    .service-card:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    
+    .service-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 2;
+      animation: pulse 2s infinite;
+    }
+    
+    .service-img {
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .service-card:hover .service-img img {
+      transform: scale(1.1);
+    }
+    
+    .service-content {
+      padding: 30px;
+    }
+    
+    .service-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .service-content p {
+      margin-bottom: 20px;
+      color: var(--text-light);
+    }
+    
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 25px;
+    }
+    
+    .service-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .service-price span {
+      font-size: 1rem;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+    
+    /* Pricing Section */
+    .pricing {
+      padding: 100px 0;
+      background: white;
+      position: relative;
+    }
+    
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 40px 0;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+      animation-delay: 0.3s;
+    }
+    
+    .pricing-table th {
+      background: var(--secondary);
+      color: var(--dark);
+      padding: 15px;
+      text-align: left;
+    }
+    
+    .pricing-table td {
+      padding: 15px;
+      border-bottom: 1px solid var(--medium-gray);
+    }
+    
+    .pricing-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .pricing-table tr:nth-child(even) {
+      background: var(--light-gray);
+    }
+    
+    .pricing-table tr:hover {
+      background: rgba(255, 127, 80, 0.1);
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      padding: 100px 0;
+      background: var(--light-gray);
+      position: relative;
+    }
+    
+    .testimonial-slider {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .testimonial {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      text-align: center;
+      margin: 0 15px;
+      position: relative;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    .testimonial::before {
+      content: '\\201C';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 5rem;
+      color: var(--primary);
+      opacity: 0.2;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .testimonial img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 4px solid var(--secondary);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .testimonial:hover img {
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .testimonial-rating {
+      color: var(--accent);
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+    
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 25px;
+      color: var(--text);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--secondary);
+      font-size: 1.1rem;
+    }
+    
+    .testimonial-role {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      display: block;
+      margin-top: 5px;
+    }
+    
+    /* CTA Section */
+    .cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: white;
+      text-align: center;
+      padding: 100px 0;
+      position: relative;
+    }
+    
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /><text x="50" y="50" font-size="20" fill="rgba(255,255,255,0.1)" text-anchor="middle" dominant-baseline="middle">🐕</text></svg>');
+      opacity: 0.3;
+      z-index: 1;
+    }
+    
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .cta h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: white;
+    }
+    
+    .cta h2::after {
+      content: ' 🐾';
+    }
+    
+    .cta p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0.9;
+    }
+    
+    .cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 80px 0 30px;
+      position: relative;
+    }
+    
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    
+    .footer-col h3 {
+      font-size: 1.4rem;
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+      color: white;
+    }
+    
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+    
+    .footer-about p {
+      margin-bottom: 20px;
+      color: rgba(255,255,255,0.7);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+      transition: transform 0.3s ease;
+    }
+    
+    .footer-links li:hover {
+      transform: translateX(5px);
+    }
+    
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .footer-contact li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      color: rgba(255,255,255,0.7);
+      transition: transform 0.3s ease;
+    }
+    
+    .footer-contact li:hover {
+      transform: translateX(5px);
+    }
+    
+    .footer-contact i {
+      margin-right: 15px;
+      color: var(--primary);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: var(--secondary);
+      color: var(--dark);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px) rotate(10deg);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-20px);
+      }
+      60% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    /* Emoji Decorations */
+    .emoji-decoration {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.2;
+      z-index: 1;
+      animation: bounce 3s infinite;
+    }
+    
+    .emoji-1 {
+      top: 20%;
+      left: 10%;
+      animation-delay: 0.2s;
+    }
+    
+    .emoji-2 {
+      top: 60%;
+      right: 15%;
+      animation-delay: 0.4s;
+    }
+    
+    .emoji-3 {
+      bottom: 10%;
+      left: 20%;
+      animation-delay: 0.6s;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .section-padding {
+        padding: 80px 0;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+      
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 350px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 100px 40px 40px;
+        box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+        transition: all 0.5s ease;
+      }
+      
+      .nav-menu.active {
+        right: 0;
+      }
+      
+      .nav-menu li {
+        margin: 15px 0;
+      }
+      
+      .hero {
+        padding: 180px 0 100px;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta h2 {
+        font-size: 2.2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .section-padding {
+        padding: 60px 0;
+      }
+      
+      .hero {
+        padding: 150px 0 80px;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .logo-text {
+        font-size: 1.3rem;
+      }
+      
+      .logo img {
+        height: 50px;
+        margin-right: 10px;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .cta h2 {
+        font-size: 1.8rem;
+      }
+      
+      .cta p {
+        font-size: 1rem;
+      }
+      
+      .pricing-table {
+        font-size: 0.9rem;
+      }
+      
+      .pricing-table th, 
+      .pricing-table td {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container header-container">
+      <a href="#home" class="logo">
+        <img src="BUBBLE LOGO SVF (DESIGN USE).svg" alt="bubbles & caundles">
+        <div class="logo-text">Bubbles & <span>Caundles</span></div>
+      </a>
+      
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home">Home 🏠</a></li>
+          <li><a href="#services">Services ✂️</a></li>
+          <li><a href="#pricing">Pricing 💰</a></li>
+          <li><a href="#testimonials">Testimonials ⭐</a></li>
+          <li><a href="#contact">Contact 📞</a></li>
+          <li><a href="book.html" class="book-now-btn">Book Now 🐾</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Premium Pet Grooming Services</h1>
+        <p>Professional grooming services to keep your furry friends looking and feeling their best. 🐩✨</p>
+        <div class="hero-btns">
+          <a href="#services" class="btn btn-primary">Our Services ✂️</a>
+          <a href="#pricing" class="btn btn-secondary">View Pricing 💰</a>
+        </div>
+      </div>
+    </div>
+    <div class="emoji-decoration emoji-1">🐶</div>
+    <div class="emoji-decoration emoji-2">🐱</div>
+    <div class="emoji-decoration emoji-3">🐾</div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services section-padding" id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services ✨</h2>
+        <p>We offer a comprehensive range of grooming services tailored to your pet's needs. 🛁✨</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-badge">Popular 🎯</div>
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1594149929911-78975a43d4f5" alt="Dog Grooming">
+          </div>
+          <div class="service-content">
+            <h3>Full Grooming 🐕</h3>
+            <p>Complete grooming package including bath, haircut, nail trimming, ear cleaning, and more. Your pet will leave looking and feeling fabulous! ✨</p>
+            <div class="service-meta">
+              <a href="#pricing" class="btn btn-primary">View Pricing 💰</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7" alt="Cat Grooming">
+          </div>
+          <div class="service-content">
+            <h3>Cat Grooming 🐈</h3>
+            <p>Specialized grooming services for your feline friends with gentle handling techniques. Because cats deserve spa days too! 😻</p>
+            <div class="service-meta">
+              <a href="#pricing" class="btn btn-primary">View Pricing 💰</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-badge">New! 🎉</div>
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80" alt="Puppy Grooming">
+          </div>
+          <div class="service-content">
+            <h3>Puppy Grooming 🐶</h3>
+            <p>Gentle introduction to grooming for puppies with positive reinforcement. Start them young for a lifetime of happy grooming! 🥰</p>
+            <div class="service-meta">
+              <a href="#pricing" class="btn btn-primary">View Pricing 💰</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing section-padding" id="pricing">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Pricing 💲</h2>
+        <p>Transparent pricing for all our grooming services. No hidden fees! 🎯</p>
+      </div>
+      
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Small Dogs 🐕</th>
+            <th>Medium Dogs 🐩</th>
+            <th>Large Dogs 🦮</th>
+            <th>Cats 🐈</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Basic Bath & Brush</td>
+            <td>₹800</td>
+            <td>₹1,000</td>
+            <td>₹1,200</td>
+            <td>₹1,000</td>
+          </tr>
+          <tr>
+            <td>Full Grooming ✂️</td>
+            <td>₹1,200</td>
+            <td>₹1,500</td>
+            <td>₹1,800</td>
+            <td>₹1,500</td>
+          </tr>
+          <tr>
+            <td>Haircut & Style 💇</td>
+            <td>₹1,000</td>
+            <td>₹1,300</td>
+            <td>₹1,600</td>
+            <td>₹1,300</td>
+          </tr>
+          <tr>
+            <td>Nail Trimming ✂️</td>
+            <td>₹200</td>
+            <td>₹200</td>
+            <td>₹200</td>
+            <td>₹200</td>
+          </tr>
+          <tr>
+            <td>Ear Cleaning 👂</td>
+            <td>₹150</td>
+            <td>₹150</td>
+            <td>₹150</td>
+            <td>₹150</td>
+          </tr>
+          <tr>
+            <td>Teeth Brushing 🦷</td>
+            <td>₹250</td>
+            <td>₹250</td>
+            <td>₹250</td>
+            <td>₹250</td>
+          </tr>
+          <tr>
+            <td>Flea & Tick Treatment 🐜</td>
+            <td>₹300</td>
+            <td>₹300</td>
+            <td>₹300</td>
+            <td>₹300</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials section-padding" id="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>Happy Pet Parents 🥰</h2>
+        <p>What our clients say about our services. ⭐⭐⭐⭐⭐</p>
+      </div>
+      
+      <div class="testimonial-slider">
+        <div class="testimonial">
+          
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <section class="reviews">
+  <h2>What Our Customers Say</h2>
+  <div class="review-card">
+    <h3>Kiran Sharda</h3>
+    <p>⭐⭐⭐⭐⭐</p>
+    <p>Best pet grooming services. My Bella was so comfortable. The staff is well trained. Highly recommended. Must get the groomings from them if you love your pet.</p>
+  </div>
+
+  <div class="review-card">
+    <h3>Abhishek Jaswal</h3>
+    <p>⭐⭐⭐⭐⭐</p>
+    <p>Fantastic service, polite, friendly and professional. Best dog groomer by far! Would highly recommend.</p>
+  </div>
+
+  <div class="review-card">
+    <h3>Navneet Kaur</h3>
+    <p>⭐⭐⭐⭐⭐</p>
+    <p>Excellent service and very professional! Highly recommend to everyone.</p>
+  </div>
+</section>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Pamper Your Pet? 🛁</h2>
+        <p>Book your grooming appointment today and give your pet the care they deserve. They'll thank you with extra cuddles! 🥰</p>
+        <div class="cta-btns">
+          <a href="book.html" class="btn btn-primary">Book Now ✨</a>
+          <a href="tel:+919999999999" class="btn btn-secondary">Call Us 📞</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>cuddles n Bubbles 🐾</h3>
+          <p>Professional pet grooming services with care and love for your furry family members. 🐶🐱</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/cuddlesnbubbles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/humtumaurpoonch"><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Quick Links 🔗</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home 🏠</a></li>
+            <li><a href="#services">Services ✂️</a></li>
+            <li><a href="#pricing">Pricing
+                          <li><a href="#pricing">Pricing 💰</a></li>
+            <li><a href="#contact">Contact 📞</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Contact Us 📱</h3>
+          <ul class="footer-contact">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>punjab,ludhiana</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span>+91 7600243900</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>Cuddlesnbubblesludhiana@gmail.com</span>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <span>Mon-Sat: 9AM - 7PM<br>Sun: 10AM - 5PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2023 caundles & bubbles. All Rights Reserved. 🐾</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Header Scroll Effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Mobile Navigation Toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+      this.querySelector('i').classList.toggle('fa-times');
+      this.querySelector('i').classList.toggle('fa-bars');
+    });
+    
+    // Close mobile menu when clicking on a link
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          navMenu.classList.remove('active');
+          navToggle.querySelector('i').classList.add('fa-bars');
+          navToggle.querySelector('i').classList.remove('fa-times');
+        }
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Animation on scroll
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.service-card, .pricing-table, .testimonial');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementPosition < windowHeight - 100) {
+          element.style.animationPlayState = 'running';
+        }
+      });
+    }
+    
+    // Initialize animations
+    window.addEventListener('load', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Emoji animation
+    const emojis = document.querySelectorAll('.emoji-decoration');
+    emojis.forEach(emoji => {
+      emoji.style.opacity = '0.3';
+      emoji.style.animation = `bounce 3s infinite ${emoji.style.animationDelay || '0s'}`;
+    });
+  </script>
+</body>
+</html>
